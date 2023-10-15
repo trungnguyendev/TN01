@@ -15,7 +15,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Login to Azure Container Registry
-      run: az acr login --name dockerMyTrung --expose-token
+      run: az acr login --name dockerMyTrung 
+      env:
+           AZURE_REGISTRY: dockerMyTrung 
 
     - name: Build and push Docker image
       run: |

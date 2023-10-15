@@ -14,17 +14,14 @@ jobs:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Login to Docker Hub
-      run: 
-         |
-         docker login -u trungdev2003 -p trung1232003
-         docker pull trungdev2003/aaa:dev
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v1
     - name: Push Docker image
       run:
          |
          az acr login --name dockerMyTrung --username dockerMyTrung --password BQHCEjqDVdWKyKO3h4U4yE4nVMwj2h8qa4xsPXcYQI+ACRBjTga5
-         docker tag trungdev2003/aaa:dev dockermytrung.azurecr.io/aaa:dev
-         docker push dockermytrung.azurecr.io/aaa:latest
+         docker buildx build -t dockermytrung.azurecr.io/tn00:latest -f path/to/Dockerfile .
+         docker push dockermytrung.azurecr.io/tn00:latest
     - name: Setup .NET SDK
       uses: actions/setup-dotnet@v3
       with:

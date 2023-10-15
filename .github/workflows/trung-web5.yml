@@ -14,11 +14,10 @@ jobs:
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Login to Azure Container Registry
-      run: az acr login --name dockerMyTrung --username dockerMyTrung --password BQHCEjqDVdWKyKO3h4U4yE4nVMwj2h8qa4xsPXcYQI+ACRBjTga5
     - name: Push Docker image
       run:
          |
+         az acr login --name dockerMyTrung --username dockerMyTrung --password BQHCEjqDVdWKyKO3h4U4yE4nVMwj2h8qa4xsPXcYQI+ACRBjTga5
          docker tag tn01:dev dockermytrung.azurecr.io/tn01:dev
          docker push dockermytrung.azurecr.io/tn01:dev
     - name: Deploy to Azure Web App

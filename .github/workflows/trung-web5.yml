@@ -15,10 +15,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Login to Azure Container Registry
-      run: az acr login --name dockerMyTrung 
-      env:
-           AZURE_REGISTRY: dockerMyTrung 
-
+      run: az acr login --name dockerMyTrung --username tn0888888@gmail.com --password trungvippro2312003
     - name: Build and push Docker image
       run: |
         docker build -t tn01 .

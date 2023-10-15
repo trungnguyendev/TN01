@@ -18,9 +18,9 @@ jobs:
       run: az acr login --name dockerMyTrung --username dockerMyTrung --password BQHCEjqDVdWKyKO3h4U4yE4nVMwj2h8qa4xsPXcYQI+ACRBjTga5
     - name: Build and push Docker image
       run: |
-        docker build -t tn01 -f Dockerfile .
-        docker tag tn01 dockerMyTrung/tn01
-        docker push dockerMyTrung/tn01
+        docker build -t tn01 -f ../TN01/Dockerfile .
+        docker tag tn01 dockermytrung/tn01
+        docker push dockermytrung/tn01
 
     - name: Deploy to Azure Web App
       run: az webapp deployment container config --name TN01 --resource-group TrungDev6666 --multicontainer-config-type standard

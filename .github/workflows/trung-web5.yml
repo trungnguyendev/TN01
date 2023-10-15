@@ -20,7 +20,7 @@ jobs:
       run:
          |
          az acr login --name dockerMyTrung --username dockerMyTrung --password BQHCEjqDVdWKyKO3h4U4yE4nVMwj2h8qa4xsPXcYQI+ACRBjTga5
-         docker tag trungdev2003/aaa:dev dockermytrung.azurecr.io/aaa:dev
+         docker tag trungdev2003/aaa dockermytrung.azurecr.io/aaa:dev
          docker push dockermytrung.azurecr.io/aaa:latest
     - name: Setup .NET SDK
       uses: actions/setup-dotnet@v3
